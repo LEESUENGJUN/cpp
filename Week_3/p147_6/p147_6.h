@@ -13,4 +13,4 @@ int playGugu(int numQuestions);
 int playMul(int numQuestions);
 int playAdd(int digits, int numQuestions);
 
-#endif // P147_6_H
+#endif 
