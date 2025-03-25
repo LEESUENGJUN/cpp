@@ -6,7 +6,7 @@
 (3) 프로그램이 시작되면 게임을 선택. 
 (4) 사용자가 계속 틀리면 같은 문제를 계속 시도. */
 
-int playGugu(int numQuestions) {
+int playGugu(int numQuestions) { // 구구단 게임 함수
     int score = 0;
 
     for (int i = 0; i < numQuestions; i++) {
@@ -22,7 +22,7 @@ int playGugu(int numQuestions) {
                 cout << "정답!" << endl;
                 score += 10;  // 정답 시 점수 추가
                 break;
-            } else {
+            } else {   //사용자가 정답을 맞힐 때까지 반복
                 cout << "틀렸습니다! 다시 입력하세요: ";
             }
         }
@@ -30,7 +30,7 @@ int playGugu(int numQuestions) {
     return score;
 }
 
-// 두 자리 곱셈 게임 (10~99 사이의 숫자 곱셈)
+// 두 자리 곱셈 게임 함수
 int playMul(int numQuestions) {
     int score = 0;
 
@@ -47,7 +47,7 @@ int playMul(int numQuestions) {
                 cout << "정답!" << endl;
                 score += 10;
                 break;
-            } else {
+            } else {   //사용자가 정답을 맞힐 때까지 반복
                 cout << "틀렸습니다! 다시 입력하세요: ";
             }
         }
@@ -55,7 +55,7 @@ int playMul(int numQuestions) {
     return score;
 }
 
-// 여러 자리 덧셈 게임 (자리 수에 따라 숫자 생성)
+// 여러 자리 덧셈 게임 함수
 int playAdd(int digits, int numQuestions) {
     int score = 0;
 
@@ -74,7 +74,7 @@ int playAdd(int digits, int numQuestions) {
                 cout << "정답!" << endl;
                 score += 10;
                 break;
-            } else {
+            } else {    //사용자가 정답을 맞힐 때까지 반복
                 cout << "틀렸습니다! 다시 입력하세요: ";
             }
         }
@@ -82,7 +82,7 @@ int playAdd(int digits, int numQuestions) {
     return score;
 }
 
-// 메인 함수
+// 메인 함수 (게임 선택 및 실행)
 int main() {
     srand(time(0));  // 랜덤 시드 설정
 
