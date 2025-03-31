@@ -17,6 +17,8 @@ int moveCount = 0;
 clock_t startTime;
 
 // 크기 선택
+/* 게임 시작 시 퍼즐 크기를 사용자에게 입력받습니다.
+   3, 4, 5 중 선택 가능하고, 잘못된 값은 기본값 4로 설정됩니다.”*/
 void selectSize() {
     cout << "퍼즐 크기를 선택하세요 (3, 4, 5): ";
     cin >> DIM;
@@ -27,6 +29,8 @@ void selectSize() {
 }
 
 // 퍼즐 초기화
+/*  입력한 크기를 바탕으로 퍼즐 배열을 1부터 순차적으로 채우고, 마지막을 빈칸 0으로 설정합니다.
+    빈칸의 좌표는 x, y로 저장해 이동에 사용됩니다.*/
 void initMap() {
     int num = 1;
     for (int i = 0; i < DIM; i++) {
@@ -39,6 +43,8 @@ void initMap() {
 }
 
 // 퍼즐 맵 출력
+/*시스템 clear로 화면을 지우고, 배열을 보드처럼 출력합니다.
+하단에는 현재 이동 횟수와 경과 시간이 함께 표시됩니다.*/
 void draw() {
     system("clear");
     cout << "\tFifteen Puzzle\n";
@@ -58,7 +64,8 @@ void draw() {
     printf("\t소요 시간: %.1f\n\n", seconds);
 }
 
-// 블록 이동
+/*사용자가 입력한 방향에 따라 빈칸(0)과 숫자 타일을 맞바꿔 이동시키는 역할을 합니다.
+방향에 따라 좌표를 조절하고, swap()으로 두 값을 교체합니다.*/
 void moveTile(char dir) {
     int nx = x, ny = y;
 
@@ -74,7 +81,9 @@ void moveTile(char dir) {
     moveCount++;
 }
 
-// 퍼즐 완성 여부 확인
+/* 퍼즐이 완성되었는지 판단하는 로직입니다.
+1부터 차례대로 값이 정렬되어 있어야 하며, 마지막 칸은 0이어야 합니다.
+퍼즐 상태를 순회하며 정답 순서와 일치하는지 확인합니다.*/
 bool isSolved() {
     int val = 1;
     for (int i = 0; i < DIM; i++) {
@@ -89,7 +98,8 @@ bool isSolved() {
     return true;
 }
 
-// 퍼즐 섞기
+/* 퍼즐을 무작위로 섞기 위해 moveTile()을 여러 번 호출합니다.
+   usleep()을 이용해 섞이는 과정이 눈에 보이도록 연출합니다. */
 void shuffle(int count) {
     const char directions[4] = {'U', 'D', 'L', 'R'};
     for (int i = 0; i < count; i++) {
@@ -125,7 +135,12 @@ int getArrowKey() {
     }
     return 0;
 }
-
+/*  전체 게임의 흐름을 담당하는 메인 함수입니다.
+    먼저 퍼즐 크기를 입력 받고
+    맵을 초기화한 뒤
+    랜덤하게 섞고
+    방향키 입력을 받아 게임을 반복하며
+    퍼즐이 완성되면 종료합니다.*/
 int main() {
     srand(time(NULL));
     selectSize();
