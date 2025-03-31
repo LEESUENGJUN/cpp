@@ -9,8 +9,11 @@
 */
 using namespace std;
 
-// (1) 랜덤한 체커 보드 생성하는 함수
-void randomMap(int map[SIZE][SIZE]) {    // 2차원 배열을 0 또는 1로 무작위 초기화합니다. srand(time(0))을 사용해 실행할 때마다 다른 난수값을 보장합니다.
+/* (1) 랜덤한 체커 보드 생성하는 함수
+       2차원 배열을 0 또는 1로 무작위 초기화. 
+       srand(time(0))을 사용해 실행할 때마다 다른 난수값을 보장.*/
+
+void randomMap(int map[SIZE][SIZE]) {
     srand(time(0)); //매번 다른 난수를 생성
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
@@ -19,8 +22,11 @@ void randomMap(int map[SIZE][SIZE]) {    // 2차원 배열을 0 또는 1로 무�
     }
 }
 
-// (2) 체커 보드를 보기 좋게 화면에 출력하는 함수
-void printMap(int map[SIZE][SIZE]) {  // 2중 반복문을 사용해 현재 보드를 출력합니다. 이 과정을 통해 사용자는 시각적으로 결과를 확인할 수 있습니다.
+/* (2) 체커 보드를 보기 좋게 화면에 출력하는 함수
+       2중 반복문을 사용해 현재 보드를 출력. 
+       이 과정을 통해 사용자는 시각적으로 결과를 확인.*/
+
+void printMap(int map[SIZE][SIZE]) {
     cout << "체커 보드:" << endl;
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
@@ -30,8 +36,10 @@ void printMap(int map[SIZE][SIZE]) {  // 2중 반복문을 사용해 현재 보�
     }
 }
 
-// (3) 가로나 세로 또는 대각선이 모두 0이거나 1인 부분을 찾아 출력하는 함수
-void checkMap(int map[SIZE][SIZE]) { // 5x5 배열에서 모든 값이 동일한 행, 열, 혹은 대각선을 찾아냅니다. allZero, allOne이라는 플래그를 사용해 모든 요소가 동일한지 판단하고, 발견되면 해당 위치를 출력합니다.
+/*(3) 가로나 세로 또는 대각선이 모두 0이거나 1인 부분을 찾아 출력하는 함수
+      5x5 배열에서 모든 값이 동일한 행, 열, 혹은 대각선을 찾아냄. 
+      allZero, allOne이라는 플래그를 사용해 모든 요소가 동일한지 판단, 발견되면 해당 위치를 출력.*/
+void checkMap(int map[SIZE][SIZE]) { 
     bool found = false;
 
     // 가로 검사
@@ -87,7 +95,9 @@ void checkMap(int map[SIZE][SIZE]) { // 5x5 배열에서 모든 값이 동일한
     }
 }
 
-int main() { //  main 함수입니다. 보드 배열을 생성한 후, 세 개의 함수를 차례로 호출하여 프로그램이 동작하게 합니다.
+//main 함수. 보드 배열을 생성한 후, 세 개의 함수를 차례로 호출하여 프로그램이 동작.
+
+int main() {
     int map[SIZE][SIZE];
 
     randomMap(map); // (1) 5x5 배열을 랜덤하게 채움
