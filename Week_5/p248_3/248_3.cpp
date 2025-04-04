@@ -29,7 +29,7 @@ MyTime addTime(MyTime t1, MyTime t2) {
     return result;
 }
 
-// 2. 참조형 매개변수를 사용하여 결과를 외부에 저장하는 함수
+// 2. 참조형 변수를 사용하여 결과를 외부에 저장하는 함수
 void addTime(MyTime t1, MyTime t2, MyTime& t3) {
     // 밀리초 계산 및 초로 반영
     t3.msec = t1.msec + t2.msec;
@@ -45,7 +45,7 @@ void addTime(MyTime t1, MyTime t2, MyTime& t3) {
     t3.min %= 60;
 }
 
-// 3. 포인터 매개변수를 사용하여 결과를 저장하는 함수
+// 3. 포인터 변수를 사용하여 결과를 저장하는 함수
 void addTime(MyTime t1, MyTime t2, MyTime* pt) {
     // 밀리초 계산 및 초로 반영
     pt->msec = t1.msec + t2.msec;
@@ -73,17 +73,17 @@ int main() {
 
     // 방식 1: 반환형 함수 사용
     MyTime result1 = addTime(t1, t2);
-    cout << "\n방식 1 결과: " << result1.hour << ":" << result1.min << ":" << result1.sec << "." << result1.msec << endl;
+    cout << "\n[반환형 함수] 결과: " << result1.hour << "시간 " << result1.min << "분 " << result1.sec << "초 " << result1.msec << "밀리초" << endl;
 
-    // 방식 2: 참조형 매개변수 사용
+    // 방식 2: 참조형 변수 사용
     MyTime result2;
     addTime(t1, t2, result2);
-    cout << "방식 2 결과: " << result2.hour << ":" << result2.min << ":" << result2.sec << "." << result2.msec << endl;
+    cout << "[참조형 변수] 결과: " << result2.hour << "시간 " << result2.min << "분 " << result2.sec << "초 " << result2.msec << "밀리초" << endl;
 
-    // 방식 3: 포인터 매개변수 사용
+    // 방식 3: 포인터 변수 사용
     MyTime result3;
     addTime(t1, t2, &result3);
-    cout << "방식 3 결과: " << result3.hour << ":" << result3.min << ":" << result3.sec << "." << result3.msec << endl;
+    cout << "[포인터 변수] 결과: " << result3.hour << "시간 " << result3.min << "분 " << result3.sec << "초 " << result3.msec << "밀리초" << endl;
 
     return 0;
 }
