@@ -2,7 +2,8 @@
 using namespace std;
 
 //p248_3번 문제: 두 개의 시간을 더하는 다음 함수를 다음과 같이 세 방법으로 구현하라.
-struct MyTime {
+
+struct MyTime { // 사용자 정의 자료형 - 여러 개의 변수(데이터)를 하나의 묶음
     int hour;   // 시
     int min;    // 분
     int sec;    // 초
