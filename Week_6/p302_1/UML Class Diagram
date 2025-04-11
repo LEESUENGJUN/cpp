@@ -1,0 +1,15 @@
++--------------------------+
+|        MyTime            |   ← 클래스 이름
++--------------------------+
+| - hour: int              |   ← 시(hour), 정수형, private
+| - minute: int            |   ← 분(minute), 정수형, private
+| - second: int            |   ← 초(second), 정수형, private
+| - millisecond: int       |   ← 밀리초(ms), 정수형, private
++--------------------------+
+| + MyTime()               |   ← 생성자: 시간 정보를 모두 0으로 초기화
+| + reset(): void          |   ← 모든 시간을 0으로 초기화하는 함수
+| + read(): void           |   ← 사용자로부터 시간 정보를 입력받는 함수
+| + convert(double): void  |   ← 초(double)을 시/분/초/밀리초로 변환하는 함수
+| + print(): void          |   ← 시간 정보를 01:02:34:567 형식으로 출력
+| + add(MyTime): MyTime    |   ← 다른 MyTime 객체와 더한 결과를 반환하는 함수
++--------------------------+
