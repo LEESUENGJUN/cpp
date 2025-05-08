@@ -2,10 +2,10 @@
 #define MYTIME_H
 
 #include <iostream>
-#include <iomanip>
+#include <iomanip> 
 
 class MyTime {
-private:
+private: //접근지정자 클래스 외부에서는 직접 접근하거나 수정할 수 없습니다.
     //  멤버 변수들은 모두 private로 처리
     int hour;
     int minute;

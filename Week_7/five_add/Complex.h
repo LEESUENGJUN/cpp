@@ -6,7 +6,9 @@ using namespace std;
 
 class Complex {
     double real, imag;
-
+//역할: Complex 클래스 객체를 초기화합니다.
+//기본값: r, i 모두 기본값 0.0을 가집니다. (인자 없이 호출 가능)
+//초기화 리스트(: real(r), imag(i)) 사용:
 public:
     Complex(double r = 0.0, double i = 0.0) : real(r), imag(i) {}
 

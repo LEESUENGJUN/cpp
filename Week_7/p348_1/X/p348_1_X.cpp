@@ -11,7 +11,7 @@ private:
     int millisecond;
 
 public:
-    // 기본 생성자
+    // 기본 생성자 (멤버 초기화 리스트 사용 안 함)
     MyTime() {
         hour = 0;
         minute = 0;
@@ -19,7 +19,7 @@ public:
         millisecond = 0;
     }
 
-    // 매개변수 생성자
+    // 매개변수 생성자 (멤버 초기화 리스트 사용 안 함)
     MyTime(int h, int m, int s, int ms) {
         hour = h;
         minute = m;
@@ -29,13 +29,13 @@ public:
 
     // 초(double) 단위를 시/분/초/밀리초로 변환
     void convert(double duration) {
-        int total_ms = static_cast<int>(duration * 1000);
-        hour = total_ms / 3600000;
+        int total_ms = static_cast<int>(duration * 1000); // 초를 밀리초 단위로 변환
+        hour = total_ms / 3600000;                        // 1시간 = 3600000밀리초
         total_ms %= 3600000;
-        minute = total_ms / 60000;
+        minute = total_ms / 60000;                        // 1분 = 60000밀리초
         total_ms %= 60000;
-        second = total_ms / 1000;
-        millisecond = total_ms % 1000;
+        second = total_ms / 1000;                         // 1초 = 1000밀리초
+        millisecond = total_ms % 1000;                    // 남은 밀리초
     }
 
     // 시간을 00:00:00:000 형식으로 출력
@@ -50,16 +50,16 @@ public:
     MyTime add(const MyTime& t) {
         MyTime result;
         result.millisecond = millisecond + t.millisecond;
-        result.second = second + t.second + result.millisecond / 1000;
+        result.second = second + t.second + result.millisecond / 1000; // 1000ms = 1s
         result.millisecond %= 1000;
-        result.minute = minute + t.minute + result.second / 60;
+        result.minute = minute + t.minute + result.second / 60;        // 60s = 1m
         result.second %= 60;
-        result.hour = hour + t.hour + result.minute / 60;
+        result.hour = hour + t.hour + result.minute / 60;              // 60m = 1h
         result.minute %= 60;
         return result;
     }
 
-    // 모든 멤버 변수 초기화
+    // 모든 멤버 변수 0으로 초기화
     void reset() {
         hour = minute = second = millisecond = 0;
     }
@@ -102,7 +102,7 @@ int main() {
     cout << "t3: ";
     t3.print();
 
-    // 초 단위 입력 후 시간 변환
+    // 초 단위 입력 후 시간 변환 테스트
     cout << "\n[초 단위 입력을 통한 변환 테스트]" << endl;
     MyTime t4;
     double secInput;
@@ -112,7 +112,7 @@ int main() {
     cout << "변환된 시간: ";
     t4.print();
 
-    // t1 시간 초기화
+    // t1 시간 초기화 테스트
     cout << "\n[시간 초기화 테스트 (t1)]" << endl;
     t1.reset();
     cout << "초기화된 t1: ";
