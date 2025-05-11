@@ -1,5 +1,4 @@
 #include "p348_1.h"
-
 int main() {
     MyTime t1, t2, t3;
 
