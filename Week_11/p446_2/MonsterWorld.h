@@ -2,7 +2,6 @@
 #include "Matrix.h"
 #include "Canvas.h"
 #include "Monster.h"
-
 #define MAXMONS 100
 
 class MonsterWorld {
