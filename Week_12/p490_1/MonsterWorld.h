@@ -61,18 +61,14 @@ public:
                 pMon[i]->move(world.Data(), xMax, yMax);
             if (kbhit()) {
                 unsigned char ch = getche();
-                if (ch == 27 && kbhit()) {
-                    getch();
-                    unsigned char dir = getch();
-                    ((Tuman*)pMon[nMon - 1])->moveHuman(world.Data(), xMax, yMax, dir);
-                } else {
-                    ((Tuman*)pMon[nMon - 2])->moveHuman(world.Data(), xMax, yMax, ch);
-                }
+                ((Tuman*)pMon[nMon - 1])->moveHuman(world.Data(), xMax, yMax, ch);
+                ((Tuman*)pMon[nMon - 2])->moveHuman(world.Data(), xMax, yMax, ch);
             }
             nMove++;
             print();
             if (isDone()) break;
             usleep(waitMs * 1000);
         }
-    }
-};
+    }  
+};     
+
