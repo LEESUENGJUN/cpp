@@ -28,7 +28,7 @@ class MonsterWorld {
 				if (Map(x, y) > 0) canvas.draw(x, y, "■");
 		for (int i = 0; i < nMon; i++)
 			pMon[i]->draw(canvas);
-		canvas.print("[ Monster World (신인류의 탄생) ]");
+		canvas.print("[ Monster World (여유 있는 삶) ]");
 
 		cerr << " 전체 이동 횟수 = " << nMove << endl;
 		cerr << " 남은 아이템 수 = " << countItems() << endl;
